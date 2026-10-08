@@ -13,7 +13,7 @@ export default function About() {
       <section className="about-hero" aria-labelledby="about-title">
         <div className="about-container about-hero__grid">
           <div className="about-hero__copy">
-            <span className="about-eyebrow">Tentang Berkah Media Gemilang</span>
+            <span className="about-eyebrow">Tentang Berkah Media Gemilang sekaligus membanggakan</span>
             <h1 id="about-title">Menggerakkan <span>industri.</span></h1>
             <p className="about-hero__lead">
               Kami adalah arsitek di balik layar. Sebuah powerhouse media buying dan event production yang

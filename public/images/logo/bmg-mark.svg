@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title">
+  <title id="title">Placeholder logo Berkah Media Gemilang</title>
+  <rect width="240" height="240" rx="120" fill="#fffaf8" />
+  <circle cx="120" cy="120" r="107" fill="none" stroke="#e9e3e0" stroke-width="3" />
+  <path d="M53 169V79l25-18 24 18v90M138 169V79l24-18 25 18v90M102 169V96l18-14 18 14v73" fill="none" stroke="#173d78" stroke-linecap="square" stroke-linejoin="miter" stroke-width="11" />
+  <text x="120" y="199" fill="#bd001a" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="10" text-anchor="middle">BMG</text>
+</svg>

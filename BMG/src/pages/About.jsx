@@ -4,7 +4,7 @@ import './About.css';
 const missions = [
   'Menghadirkan eksekusi event berskala besar dengan perencanaan matang dan presisi tinggi.',
   'Mengoptimalkan hasil media buying melalui strategi berbasis data yang terukur.',
-  'Membangun kemitraan yang transparan, kuat, dan saling menguntungkan sekali.',
+  'Membangun kemitraan yang transparan, kuat, dan saling menguntungkan sekaligus oke banget.',
 ];
 
 export default function About() {

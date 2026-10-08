@@ -1,0 +1,41 @@
+/* BMG Component-level styles */
+
+/* Navbar active link indicator */
+.nav-active::after {
+  width: 75% !important;
+}
+
+/* Service card hover lift */
+.service-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Stats counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Portfolio gradient animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.portfolio-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* Form focus ring */
+input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
+}
+
+/* Button press effect */
+button:active {
+  transform: scale(0.98);
+}

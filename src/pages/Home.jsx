@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Home.css';
 
 const services = [
@@ -33,7 +33,7 @@ const values = [
 ];
 
 function SectionHeading({ children, accent = 'red' }) {
-  return <div className={`section-heading section-heading--${accent}`}><h2>{children}</h2></div>;
+  return <div className={`section-heading section-heading--${accent} home-reveal`}><h2>{children}</h2></div>;
 }
 
 function HeroSection() {
@@ -41,13 +41,13 @@ function HeroSection() {
     <section className="home-hero" id="home">
       <div className="home-hero__inner">
         <div className="home-hero__copy">
-          <div className="home-hero__title-wrap">
+          <div className="home-hero__title-wrap home-hero-enter">
             <h1 className="home-hero__title">Amplifying<br /><span>Brands.</span><br />Igniting<br className="home-hero__mobile-break" /> <strong>Events.</strong></h1>
           </div>
-          <p className="home-hero__description">Berkah Media Gemilang adalah partner media buying dan produksi event yang menggabungkan presisi strategis dengan energi tanpa batas untuk mengangkat brand Anda.</p>
-          <a className="home-button home-button--light" href="#contact">Mulai Rencanakan Event Anda <span aria-hidden="true">→</span></a>
+          <p className="home-hero__description home-hero-enter home-hero-enter--second">Berkah Media Gemilang adalah partner media buying dan produksi event yang menggabungkan presisi strategis dengan energi tanpa batas untuk mengangkat brand Anda.</p>
+          <a className="home-button home-button--light home-hero-enter home-hero-enter--third" href="#contact">Mulai Rencanakan Event Anda <span aria-hidden="true">→</span></a>
         </div>
-        <div className="hero-brand-card" aria-label="Berkah Media Gemilang, berdiri sejak 2019">
+        <div className="hero-brand-card home-hero-enter home-hero-enter--card" aria-label="Berkah Media Gemilang, berdiri sejak 2019">
           <div className="hero-brand-card__backdrop" />
           <div className="hero-brand-card__content">
             <img src="/images/logo/bmg-mark.svg" alt="Logo sementara Berkah Media Gemilang" />
@@ -68,7 +68,7 @@ function ServicesSection() {
         <SectionHeading>Layanan Kami</SectionHeading>
         <div className="services-grid">
           {services.map((service) => (
-            <article className={`service-card ${service.className}`} key={service.title}>
+            <article className={`service-card home-reveal ${service.className}`} key={service.title}>
               <div className="service-card__visual"><span className="material-symbols-outlined" aria-hidden="true">{service.icon}</span></div>
               <div className="service-card__body">
                 <span className="eyebrow-tag">{service.tag}</span>
@@ -87,11 +87,11 @@ function FeaturedPortfolioSection() {
   return (
     <section className="home-portfolio" id="portofolio" aria-labelledby="home-portfolio-title">
       <div className="home-container">
-        <div className="home-portfolio__heading">
+        <div className="home-portfolio__heading home-reveal">
           <span className="home-portfolio__bar" aria-hidden="true" />
           <h2 id="home-portfolio-title">Portofolio</h2>
         </div>
-        <article className="home-featured-project">
+        <article className="home-featured-project home-reveal">
           <div className="home-featured-project__image">
             <img
               src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=85"
@@ -123,10 +123,10 @@ function AboutSection() {
     <section className="home-section about-section" id="tentang">
       <div className="home-container">
         <SectionHeading>Tentang Kami</SectionHeading>
-        <p className="about-intro">PT Berkah Media Gemilang adalah perusahaan media yang didirikan pada tahun 2019. Kami berfokus pada Event Organizer, Media Buying, Event Production &amp; Logistik, serta Digital &amp; Social Media Management.</p>
+        <p className="about-intro home-reveal">PT Berkah Media Gemilang adalah perusahaan media yang didirikan pada tahun 2019. Kami berfokus pada Event Organizer, Media Buying, Event Production &amp; Logistik, serta Digital &amp; Social Media Management.</p>
         <div className="values-grid">
           {values.map((value) => (
-            <article className={`value-card value-card--${value.accent}`} key={value.title}>
+            <article className={`value-card home-reveal value-card--${value.accent}`} key={value.title}>
               <span className="material-symbols-outlined" aria-hidden="true">{value.icon}</span>
               <h3>{value.title}</h3><p>{value.description}</p>
             </article>
@@ -148,8 +148,8 @@ function ContactSection() {
   return (
     <section className="contact-section" id="contact">
       <div className="contact-container">
-        <div className="contact-heading"><span className="section-kicker">Let’s make it happen</span><h2>Ready to disrupt<br />the market?</h2><p>Drop us a line. Kami siap mengubah ide berani menjadi pengalaman berdampak.</p></div>
-        <div className="contact-grid">
+        <div className="contact-heading home-reveal"><span className="section-kicker">Let’s make it happen</span><h2>Ready to disrupt<br />the market?</h2><p>Drop us a line. Kami siap mengubah ide berani menjadi pengalaman berdampak.</p></div>
+        <div className="contact-grid home-reveal">
           <div className="contact-form-card">
             <h3>Kirim Pesan</h3>
             <form onSubmit={handleSubmit} onChange={() => setSubmitted(false)}>
@@ -175,6 +175,31 @@ function ContactSection() {
 }
 
 export default function Home() {
+  useEffect(() => {
+    const revealElements = document.querySelectorAll('.home-page .home-reveal');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!('IntersectionObserver' in window) || prefersReducedMotion) {
+      revealElements.forEach((element) => element.classList.add('is-visible'));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -32px 0px' },
+    );
+
+    revealElements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="home-page">
       <HeroSection />

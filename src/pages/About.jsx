@@ -10,7 +10,7 @@ const missions = [
 export default function About() {
   return (
     <div className="about-page">
-      <section className="about-hero" aria-labelledby="about-title">
+      <section className="about-hero" aria-labelledby="about-title" data-page-reveal>
         <div className="about-container about-hero__grid">
           <div className="about-hero__copy">
             <span className="about-eyebrow">Tentang Berkah Media Gemilang</span>
@@ -41,7 +41,7 @@ export default function About() {
 
       <section className="about-purpose" aria-label="Visi dan misi Berkah Media Gemilang">
         <div className="about-container about-purpose__grid">
-          <article className="about-purpose-card about-purpose-card--vision">
+          <article className="about-purpose-card about-purpose-card--vision" data-page-reveal>
             <span className="about-purpose-card__eyebrow">Tujuan utama</span>
             <h2>Visi</h2>
             <p>
@@ -51,7 +51,7 @@ export default function About() {
             <span className="about-purpose-card__index" aria-hidden="true">01</span>
           </article>
 
-          <article className="about-purpose-card about-purpose-card--mission">
+          <article className="about-purpose-card about-purpose-card--mission" data-page-reveal>
             <span className="about-purpose-card__eyebrow">Cara kami bergerak</span>
             <h2>Misi</h2>
             <ul>
@@ -67,7 +67,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="about-cta">
+      <section className="about-cta" data-page-reveal>
         <div className="about-container about-cta__inner">
           <div>
             <span className="about-eyebrow">Punya ide besar?</span>

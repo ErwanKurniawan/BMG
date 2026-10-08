@@ -1,5 +1,53 @@
 /* BMG Component-level styles */
 
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes page-content-reveal {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes site-chrome-enter {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-motion {
+  animation: page-enter .42s cubic-bezier(.2, .75, .25, 1) both;
+}
+
+.page-motion .page-reveal {
+  opacity: 0;
+}
+
+.page-motion .page-reveal.is-visible {
+  animation: page-content-reveal .62s cubic-bezier(.2, .75, .25, 1) both;
+}
+
+.page-motion .service-feature-grid [data-page-reveal]:nth-child(2),
+.page-motion .about-purpose__grid [data-page-reveal]:nth-child(2),
+.page-motion .contact-details [data-page-reveal]:nth-child(2),
+.page-motion .portfolio-grid [data-page-reveal]:nth-child(2) {
+  animation-delay: .1s;
+}
+
+.page-motion .contact-details [data-page-reveal]:nth-child(3),
+.page-motion .portfolio-grid [data-page-reveal]:nth-child(3) {
+  animation-delay: .2s;
+}
+
+.page-motion .portfolio-grid [data-page-reveal]:nth-child(4) {
+  animation-delay: .3s;
+}
+
+#main-navbar,
+footer {
+  animation: site-chrome-enter .5s ease-out both;
+}
+
 /* Navbar active link indicator */
 .nav-active::after {
   width: 75% !important;
@@ -38,4 +86,17 @@ textarea:focus {
 /* Button press effect */
 button:active {
   transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-motion,
+  .page-motion .page-reveal.is-visible,
+  #main-navbar,
+  footer {
+    animation: none !important;
+  }
+
+  .page-motion .page-reveal {
+    opacity: 1;
+  }
 }

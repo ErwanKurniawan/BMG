@@ -63,18 +63,18 @@ export default function Portfolio() {
       <div className="portfolio-page">
         <section className="portfolio-section">
           <div className="portfolio-container">
-            <div className="portfolio-header">
+            <div className="portfolio-header" data-page-reveal>
               <div><span className="section-kicker">Ideas into impact</span><h1>Our<br /><span>Portofolio</span></h1></div>
               <p>Karya-karya berani, eksekusi kreatif, dan hasil yang nyata. Lihat bagaimana kami menghidupkan visi menjadi pengalaman yang berkesan.</p>
             </div>
-            <div className="portfolio-filters" aria-label="Filter proyek portofolio">
+            <div className="portfolio-filters" aria-label="Filter proyek portofolio" data-page-reveal>
               {filters.map((item) => (
                 <button className={filter === item.id ? 'portfolio-filter is-active' : 'portfolio-filter'} key={item.id} onClick={() => { setFilter(item.id); setShowAll(false); }} type="button" aria-pressed={filter === item.id}>{item.label}</button>
               ))}
             </div>
             <div className="portfolio-grid" aria-live="polite">
               {visibleProjects.map((project) => (
-                <article className={`portfolio-card ${project.wide && filter === 'all' ? 'portfolio-card--wide' : ''}`} key={project.title}>
+                <article className={`portfolio-card ${project.wide && filter === 'all' ? 'portfolio-card--wide' : ''}`} key={project.title} data-page-reveal>
                   <div className="portfolio-card__image">
                     <span className="portfolio-card__badge">{project.label}</span>
                     <img src={project.image} alt={project.alt} loading="lazy" />

@@ -9,7 +9,7 @@ function ServicesPage() {
       <meta name="description" content="Tiga pilar layanan utama Berkah Media Gemilang: Media Buying, Event Production, dan Digital Reach." />
     <div className="services-page">
       <div className="services-page__container">
-        <header className="services-intro">
+        <header className="services-intro" data-page-reveal>
           <span className="services-intro__bar" aria-hidden="true" />
           <div>
             <span className="services-eyebrow">BMG / What we do</span>
@@ -19,7 +19,7 @@ function ServicesPage() {
         </header>
 
         <section className="service-feature-grid" aria-label="Layanan utama Berkah Media Gemilang">
-          <article className="service-feature service-feature--media">
+          <article className="service-feature service-feature--media" data-page-reveal>
             <div className="service-feature__image">
               <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=85" alt="Tim bekerja menyusun strategi media" />
               <span className="service-image-label">01 / STRATEGY</span>
@@ -32,7 +32,7 @@ function ServicesPage() {
             </div>
           </article>
 
-          <article className="service-feature service-feature--digital">
+          <article className="service-feature service-feature--digital" data-page-reveal>
             <div className="service-feature__digital-content">
               <span className="service-feature__index">02 / AMPLIFICATION</span>
               <span className="material-symbols-outlined service-feature__icon" aria-hidden="true">moving</span>
@@ -44,7 +44,7 @@ function ServicesPage() {
           </article>
         </section>
 
-        <article className="service-production">
+        <article className="service-production" data-page-reveal>
           <div className="service-production__copy">
             <span className="service-feature__index">03 / EXECUTION</span>
             <div className="service-tags service-tags--light"><span>Logistics</span><span>Staging</span><span>Vendor Management</span></div>
@@ -58,7 +58,7 @@ function ServicesPage() {
           </div>
         </article>
 
-        <section className="services-cta">
+        <section className="services-cta" data-page-reveal>
           <span className="services-eyebrow">Make some noise</span>
           <h2>Siap Mendominasi?</h2>
           <p>Jangan biarkan brand Anda tenggelam dalam kebisingan. Mari diskusikan strategi agresif untuk kampanye Anda berikutnya.</p>

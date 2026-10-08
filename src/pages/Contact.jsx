@@ -30,7 +30,7 @@ export default function Contact() {
       />
       <section className="contact-page" aria-labelledby="contact-heading">
         <div className="contact-container">
-          <header className="contact-header">
+          <header className="contact-header" data-page-reveal>
             <h1 id="contact-heading">
               Ready to disrupt
               <br />
@@ -42,7 +42,7 @@ export default function Contact() {
           </header>
 
           <div className="contact-grid">
-            <section className="contact-form-card" aria-labelledby="contact-form-heading">
+            <section className="contact-form-card" aria-labelledby="contact-form-heading" data-page-reveal>
               <h2 id="contact-form-heading">Send a message</h2>
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="contact-form-row">
@@ -102,7 +102,7 @@ export default function Contact() {
             </section>
 
             <aside className="contact-details" aria-label="Contact information">
-              <section className="contact-info-card">
+              <section className="contact-info-card" data-page-reveal>
                 <span className="contact-info-icon contact-info-icon--blue material-symbols-outlined" aria-hidden="true">
                   mail
                 </span>
@@ -112,7 +112,7 @@ export default function Contact() {
                 </div>
               </section>
 
-              <section className="contact-info-card">
+              <section className="contact-info-card" data-page-reveal>
                 <span className="contact-info-icon contact-info-icon--red material-symbols-outlined" aria-hidden="true">
                   chat
                 </span>
@@ -124,7 +124,7 @@ export default function Contact() {
                 </div>
               </section>
 
-              <section className="contact-location-card" aria-labelledby="contact-location-heading">
+              <section className="contact-location-card" aria-labelledby="contact-location-heading" data-page-reveal>
                 <div className="contact-location-header">
                   <h2 id="contact-location-heading">HQ location</h2>
                   <span>Jakarta, ID</span>

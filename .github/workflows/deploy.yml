@@ -1,0 +1,48 @@
+name: BMG Website CI
+
+# Berjalan otomatis setiap ada push ke branch main.
+on:
+  push:
+    branches: [main]
+
+# Opsi: izinkan trigger manual dari tab Actions.
+  workflow_dispatch:
+
+# Build hanya butuh membaca isi repo; tidak mengubah apa pun.
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Install & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Ambil source code dari repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Siapkan Node.js 22 (sesuai engines vite@8: ^20.19.0 || >=22.12.0)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # 3. Install dependencies secara reproducible dari package-lock.json
+      #    (gagal otomatis jika npm ci gagal, mis. lock tidak sinkron)
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Build produksi; step ini GAGAL jika build error
+      - name: Build
+        run: npm run build
+
+      # 5. Simpan hasil build sebagai artifact (berguna untuk tahap CD nanti,
+      #    bukan untuk deployment ke hosting)
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 7

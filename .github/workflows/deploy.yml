@@ -1,4 +1,4 @@
-name: BMG Website CI
+name: BMG Website CI/CD
 
 # Berjalan otomatis setiap ada push ke branch main.
 on:
@@ -8,9 +8,16 @@ on:
 # Opsi: izinkan trigger manual dari tab Actions.
   workflow_dispatch:
 
-# Build hanya butuh membaca isi repo; tidak mengubah apa pun.
+# Build butuh membaca isi repo; deploy butuh pages: write + token OIDC.
 permissions:
   contents: read
+  pages: write
+  id-token: write
+
+# Hindari deploy ganda beruntun; deploy yang sedang berjalan tidak dibatalkan.
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -38,11 +45,28 @@ jobs:
       - name: Build
         run: npm run build
 
-      # 5. Simpan hasil build sebagai artifact (berguna untuk tahap CD nanti,
-      #    bukan untuk deployment ke hosting)
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+      # 5. Enable/validasi konfigurasi GitHub Pages untuk repo ini
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # 6. Upload hasil build (dist/) sebagai Pages artifact untuk job deploy
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: dist
-          path: dist/
-          retention-days: 7
+          path: ./dist
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+
+    # Environment resmi GitHub Pages; URL hasil deploy ditampilkan di tab Environments.
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # 7. Publish artifact ke GitHub Pages (butuh source repo = "GitHub Actions")
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

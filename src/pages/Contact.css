@@ -98,6 +98,7 @@
 }
 
 .contact-field input,
+.contact-field select,
 .contact-field textarea {
   width: 100%;
   min-height: 36px;
@@ -122,6 +123,7 @@
 }
 
 .contact-field input:focus,
+.contact-field select:focus,
 .contact-field textarea:focus {
   outline: 2px solid #3759b3;
   outline-offset: 1px;
@@ -293,6 +295,20 @@
   font-size: 10px;
   font-style: normal;
   line-height: 1.5;
+}
+
+.contact-location-card > a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-location-card > a:hover address {
+  text-decoration: underline;
+}
+
+.contact-location-card > a:focus-visible {
+  outline: 2px solid #bd001a;
+  outline-offset: 3px;
 }
 
 @media (min-width: 1100px) {

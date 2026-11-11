@@ -29,7 +29,7 @@ export default function Navbar() {
       requestAnimationFrame(() => {
         document.getElementById(location.hash.slice(1))?.scrollIntoView({ behavior: 'smooth' });
       });
-    } else if (location.pathname !== '/') {
+    } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [location.pathname, location.hash]);
@@ -63,7 +63,7 @@ export default function Navbar() {
           <img
             className="h-12 w-12 object-contain"
             alt="Berkah Media Gemilang Logo"
-            src="/images/logo/bmg-mark.svg"
+            src="/images/logo/bmg-mark.png"
           />
           <span className="hidden font-display text-3xl font-black tracking-tighter text-[#bd001a] md:block">
             BMG
@@ -93,7 +93,7 @@ export default function Navbar() {
         <Link
           to="/contact"
           onClick={closeMobileMenu}
-          className="hidden items-center justify-center border-2 border-[#1c1b1b] bg-[#bd001a] px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-[4px_4px_0_#1c1b1b] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0_#1c1b1b] md:inline-flex"
+          className="hidden h-8 w-24 items-center justify-center border-2 border-[#1c1b1b] bg-[#bd001a] font-mono text-[11px] font-bold uppercase tracking-wider text-white shadow-[2px_2px_0_#1c1b1b] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0_#1c1b1b] md:inline-flex"
         >
           Get Started
         </Link>
@@ -146,7 +146,7 @@ export default function Navbar() {
           <Link
             to="/contact"
             onClick={closeMobileMenu}
-            className="mt-4 border-2 border-white bg-[#bd001a] px-8 py-4 font-mono text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#9b0a20]"
+            className="mt-4 border-2 border-white bg-[#bd001a] px-8 py-4 font-mono text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#9b0a20]"
           >
             Get Started
           </Link>

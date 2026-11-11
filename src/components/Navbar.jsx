@@ -1,22 +1,97 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
-const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/layanan', label: 'Layanan' },
-  { to: '/tentang', label: 'Tentang' },
-  { to: '/portfolio', label: 'Portofolio' },
-  { to: '/contact', label: 'Contact Us' },
-];
+import { useLanguage } from '../i18n/LanguageContext';
 
 function isActiveLink(to, location) {
   return !to.includes('#') && location.pathname === to;
+}
+
+function LanguageSwitcher({ isMobile = false }) {
+  const { lang, switchLanguage } = useLanguage();
+
+  if (isMobile) {
+    return (
+      <div className="flex items-center gap-3 mt-2">
+        <button
+          type="button"
+          aria-pressed={lang === 'id'}
+          onClick={() => switchLanguage('id')}
+          className={`flex items-center gap-1.5 px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest border-2 transition-all ${
+            lang === 'id'
+              ? 'bg-[#bd001a] border-[#bd001a] text-white'
+              : 'bg-transparent border-white/40 text-white/60 hover:border-white hover:text-white'
+          }`}
+        >
+          <span aria-hidden="true">🇮🇩</span> ID
+        </button>
+        <button
+          type="button"
+          aria-pressed={lang === 'en'}
+          onClick={() => switchLanguage('en')}
+          className={`flex items-center gap-1.5 px-4 py-2 font-mono text-xs font-bold uppercase tracking-widest border-2 transition-all ${
+            lang === 'en'
+              ? 'bg-[#bd001a] border-[#bd001a] text-white'
+              : 'bg-transparent border-white/40 text-white/60 hover:border-white hover:text-white'
+          }`}
+        >
+          <span aria-hidden="true">🇬🇧</span> EN
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className="flex items-center gap-0 border-2 border-[#1c1b1b] overflow-hidden"
+      role="group"
+      aria-label="Pilih bahasa / Select language"
+    >
+      <button
+        type="button"
+        id="lang-id-btn"
+        aria-pressed={lang === 'id'}
+        onClick={() => switchLanguage('id')}
+        className={`flex items-center gap-1 px-2.5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest transition-all ${
+          lang === 'id'
+            ? 'bg-[#bd001a] text-white'
+            : 'bg-transparent text-[#1c1b1b] hover:bg-[#bd001a]/10'
+        }`}
+      >
+        <span aria-hidden="true">🇮🇩</span>
+        <span>ID</span>
+      </button>
+      <span className="w-px self-stretch bg-[#1c1b1b]" aria-hidden="true" />
+      <button
+        type="button"
+        id="lang-en-btn"
+        aria-pressed={lang === 'en'}
+        onClick={() => switchLanguage('en')}
+        className={`flex items-center gap-1 px-2.5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-widest transition-all ${
+          lang === 'en'
+            ? 'bg-[#bd001a] text-white'
+            : 'bg-transparent text-[#1c1b1b] hover:bg-[#bd001a]/10'
+        }`}
+      >
+        <span aria-hidden="true">🇬🇧</span>
+        <span>EN</span>
+      </button>
+    </div>
+  );
 }
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { to: '/', label: t.nav.home },
+    { to: '/layanan', label: t.nav.services },
+    { to: '/tentang', label: t.nav.about },
+    { to: '/portfolio', label: t.nav.portfolio },
+    { to: '/contact', label: t.nav.contact },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -29,7 +104,7 @@ export default function Navbar() {
       requestAnimationFrame(() => {
         document.getElementById(location.hash.slice(1))?.scrollIntoView({ behavior: 'smooth' });
       });
-    } else if (location.pathname !== '/') {
+    } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [location.pathname, location.hash]);
@@ -63,7 +138,7 @@ export default function Navbar() {
           <img
             className="h-12 w-12 object-contain"
             alt="Berkah Media Gemilang Logo"
-            src="/images/logo/bmg-mark.svg"
+            src="/images/logo/bmg-mark.png"
           />
           <span className="hidden font-display text-3xl font-black tracking-tighter text-[#bd001a] md:block">
             BMG
@@ -90,13 +165,17 @@ export default function Navbar() {
           })}
         </div>
 
-        <Link
-          to="/contact"
-          onClick={closeMobileMenu}
-          className="hidden items-center justify-center border-2 border-[#1c1b1b] bg-[#bd001a] px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-[4px_4px_0_#1c1b1b] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0_#1c1b1b] md:inline-flex"
-        >
-          Get Started
-        </Link>
+        {/* Desktop: Language switcher + CTA */}
+        <div className="hidden items-center gap-3 md:flex">
+          <LanguageSwitcher />
+          <Link
+            to="/contact"
+            onClick={closeMobileMenu}
+            className="h-10 w-32 inline-flex items-center justify-center border-2 border-[#1c1b1b] bg-[#bd001a] font-mono text-xs font-bold uppercase tracking-wider text-white shadow-[4px_4px_0_#1c1b1b] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0_#1c1b1b]"
+          >
+            {t.nav.getStarted}
+          </Link>
+        </div>
 
         <button
           id="mobile-menu-toggle"
@@ -146,10 +225,12 @@ export default function Navbar() {
           <Link
             to="/contact"
             onClick={closeMobileMenu}
-            className="mt-4 border-2 border-white bg-[#bd001a] px-8 py-4 font-mono text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#9b0a20]"
+            className="mt-4 border-2 border-white bg-[#bd001a] px-8 py-4 font-mono text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#9b0a20]"
           >
-            Get Started
+            {t.nav.getStarted}
           </Link>
+          {/* Mobile: Language switcher */}
+          <LanguageSwitcher isMobile />
         </div>
       </div>
     </>

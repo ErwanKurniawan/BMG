@@ -50,9 +50,8 @@ function HeroSection() {
         <div className="hero-brand-card" aria-label="Berkah Media Gemilang, berdiri sejak 2019">
           <div className="hero-brand-card__backdrop" />
           <div className="hero-brand-card__content">
-            <img src="/images/logo/bmg-mark.svg" alt="Logo sementara Berkah Media Gemilang" />
+            <img src="/images/logo/bmg-mark.png" alt="Logo Berkah Media Gemilang" />
             <span className="hero-brand-card__name">Berkah Media Gemilang</span>
-            <span className="hero-brand-card__est">EST. 2019</span>
           </div>
         </div>
       </div>
@@ -165,8 +164,8 @@ function ContactSection() {
           </div>
           <aside className="contact-details" aria-label="Informasi kontak">
             <a className="contact-detail" href="mailto:hello@bmg.co.id"><span className="contact-detail__icon material-symbols-outlined" aria-hidden="true">mail</span><span><small>Email Us</small><strong>hello@bmg.co.id</strong></span><span className="contact-detail__arrow" aria-hidden="true">↗</span></a>
-            <a className="contact-detail" href="https://wa.me/628110000000" target="_blank" rel="noreferrer"><span className="contact-detail__icon material-symbols-outlined" aria-hidden="true">chat</span><span><small>WhatsApp</small><strong>+62 811-0000-000</strong></span><span className="contact-detail__arrow" aria-hidden="true">↗</span></a>
-            <div className="location-card"><div className="location-card__heading"><span><small>Headquarters</small><strong>Jakarta, Indonesia</strong></span><span className="location-pin material-symbols-outlined" aria-hidden="true">location_on</span></div><div className="location-map"><span className="location-map__label">BMG · JAKARTA</span><span className="location-map__pin material-symbols-outlined" aria-hidden="true">location_on</span></div><p>Gedung Gemilang Tower Lt. 14<br />Jl. Jend. Sudirman Kav. 88<br />Jakarta Pusat, 10220</p></div>
+            <a className="contact-detail" href="https://wa.me/628112144113" target="_blank" rel="noreferrer"><span className="contact-detail__icon material-symbols-outlined" aria-hidden="true">chat</span><span><small>WhatsApp</small><strong>+62 811-2144-113</strong></span><span className="contact-detail__arrow" aria-hidden="true">↗</span></a>
+            <div className="location-card"><div className="location-card__heading"><span><small>Headquarters</small><strong>Bandung, Indonesia</strong></span><span className="location-pin material-symbols-outlined" aria-hidden="true">location_on</span></div><div className="location-map"><span className="location-map__label">BMG · BANDUNG</span><span className="location-map__pin material-symbols-outlined" aria-hidden="true">location_on</span></div><a href="https://www.google.com/maps/search/?api=1&query=Jl.%20Tamblong%20No.46%2C%20Kb.%20Pisang%2C%20Kec.%20Sumur%20Bandung%2C%20Bandung%2040112" target="_blank" rel="noopener noreferrer"><p>Jl. Tamblong No.46<br />Kb. Pisang, Kec. Sumur Bandung<br />Bandung 40112</p></a></div>
           </aside>
         </div>
       </div>

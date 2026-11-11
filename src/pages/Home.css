@@ -170,7 +170,10 @@
 .location-map { position: relative; height: 130px; margin-top: 17px; overflow: hidden; display: grid; place-items: center; border-block: 2px solid var(--home-ink); background-color: #e9e6e4; background-image: linear-gradient(35deg, transparent 46%, rgb(55 89 179 / 22%) 47%, rgb(55 89 179 / 22%) 49%, transparent 50%), linear-gradient(-25deg, transparent 42%, rgb(189 0 26 / 16%) 43%, rgb(189 0 26 / 16%) 45%, transparent 46%), linear-gradient(#b7b2b0 1px, transparent 1px), linear-gradient(90deg, #b7b2b0 1px, transparent 1px); background-size: 100% 100%, 100% 100%, 25px 25px, 25px 25px; }
 .location-map__label { padding: 5px 8px; background: var(--home-ink); color: #fff; font: 700 9px var(--font-mono); letter-spacing: .12em; }
 .location-map__pin { position: absolute; top: 24px; left: 58%; color: var(--home-red); font-size: 34px; }
-.location-card > p { margin-top: 14px; color: var(--home-muted); font-size: 13px; font-weight: 600; line-height: 1.65; }
+.location-card > a { display: block; color: inherit; text-decoration: none; }
+.location-card > a > p { margin-top: 14px; color: var(--home-muted); font-size: 13px; font-weight: 600; line-height: 1.65; }
+.location-card > a:hover > p { text-decoration: underline; }
+.location-card > a:focus-visible { outline: 2px solid var(--home-red); outline-offset: 3px; }
 
 @media (max-width: 900px) {
   .home-hero { min-height: auto; padding-top: 78px; padding-bottom: 85px; }

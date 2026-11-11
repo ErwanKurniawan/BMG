@@ -48,6 +48,18 @@ footer {
   animation: site-chrome-enter .5s ease-out both;
 }
 
+.site-footer {
+  padding-top: 2.5rem;
+  padding-bottom: 3.5rem;
+}
+
+@media (min-width: 48rem) {
+  .site-footer {
+    padding-top: 3.5rem;
+    padding-bottom: 4rem;
+  }
+}
+
 /* Navbar active link indicator */
 .nav-active::after {
   width: 75% !important;

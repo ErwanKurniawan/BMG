@@ -7,6 +7,8 @@ import Portfolio from './pages/Portfolio';
 import Services from './pages/Services';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import { LanguageProvider } from './i18n/LanguageContext';
 
 function PageMotion({ children }) {
   const location = useLocation();
@@ -32,22 +34,25 @@ function PageMotion({ children }) {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-1">
-          <PageMotion>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/layanan" element={<Services />} />
-              <Route path="/tentang" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </PageMotion>
-        </main>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
+          <main className="flex-1">
+            <PageMotion>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/layanan" element={<Services />} />
+                <Route path="/tentang" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              </Routes>
+            </PageMotion>
+          </main>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }

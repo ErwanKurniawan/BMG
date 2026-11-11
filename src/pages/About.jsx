@@ -1,83 +1,81 @@
 import { Link } from 'react-router-dom';
 import './About.css';
+import { useLanguage } from '../i18n/LanguageContext';
 
-const missions = [
-  'Menghadirkan eksekusi event berskala besar dengan perencanaan matang dan presisi tinggi.',
-  'Mengoptimalkan hasil media buying melalui strategi berbasis data yang terukur.',
-  'Membangun kemitraan yang transparan, kuat, dan saling menguntungkan.',
-];
+const missionIcons = ['⚡', '↗', '✳'];
 
 export default function About() {
+  const { t } = useLanguage();
+  const a = t.about;
+
   return (
-    <div className="about-page">
-      <section className="about-hero" aria-labelledby="about-title" data-page-reveal>
-        <div className="about-container about-hero__grid">
-          <div className="about-hero__copy">
-            <span className="about-eyebrow">Tentang Berkah Media Gemilang</span>
-            <h1 id="about-title">Menggerakkan <span>industri.</span></h1>
-            <p className="about-hero__lead">
-              Kami adalah arsitek di balik layar. Sebuah powerhouse media buying dan event production yang
-              mengubah ide berani menjadi eksekusi presisi tinggi—dengan energi yang tak mudah dilupakan.
-            </p>
-            <div className="about-hero__actions">
-              <Link className="about-button" to="/layanan">
-                Kenali layanan kami <span aria-hidden="true">→</span>
-              </Link>
-              <span className="about-hero__note">Precision media. Raw energy.</span>
+    <>
+      <title>{a.pageTitle}</title>
+      <meta name="description" content={a.pageDescription} />
+      <div className="about-page">
+        <section className="about-hero" aria-labelledby="about-title" data-page-reveal>
+          <div className="about-container about-hero__grid">
+            <div className="about-hero__copy">
+              <span className="about-eyebrow">{a.eyebrow}</span>
+              <h1 id="about-title">{a.heroTitle1} <span>{a.heroTitle2}</span></h1>
+              <p className="about-hero__lead">{a.heroLead}</p>
+              <div className="about-hero__actions">
+                <Link className="about-button" to="/layanan">
+                  {a.servicesLink} <span aria-hidden="true">→</span>
+                </Link>
+                <span className="about-hero__note">{a.heroNote}</span>
+              </div>
+            </div>
+
+            <div className="about-visual">
+              <div className="about-visual__frame">
+                <img
+                  src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=85"
+                  alt={a.imageAlt}
+                />
+                <span className="about-visual__label">{a.imageLabel}</span>
+              </div>
             </div>
           </div>
+        </section>
 
-          <div className="about-visual">
-            <div className="about-visual__frame">
-              <img
-                src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=85"
-                alt="Panggung event dengan sorot lampu dan suasana yang energik"
-              />
-              <span className="about-visual__label">Ideas into impact / BMG</span>
+        <section className="about-purpose" aria-label={`${a.visionTitle} ${a.missionTitle} Berkah Media Gemilang`}>
+          <div className="about-container about-purpose__grid">
+            <article className="about-purpose-card about-purpose-card--vision" data-page-reveal>
+              <span className="about-purpose-card__eyebrow">{a.visionEyebrow}</span>
+              <h2>{a.visionTitle}</h2>
+              <p>{a.visionBody}</p>
+              <span className="about-purpose-card__index" aria-hidden="true">01</span>
+            </article>
+
+            <article className="about-purpose-card about-purpose-card--mission" data-page-reveal>
+              <span className="about-purpose-card__eyebrow">{a.missionEyebrow}</span>
+              <h2>{a.missionTitle}</h2>
+              <ul>
+                {a.missions.map((mission, index) => (
+                  <li key={mission}>
+                    <span aria-hidden="true">{missionIcons[index]}</span>
+                    <p>{mission}</p>
+                  </li>
+                ))}
+              </ul>
+              <span className="about-purpose-card__index" aria-hidden="true">02</span>
+            </article>
+          </div>
+        </section>
+
+        <section className="about-cta" data-page-reveal>
+          <div className="about-container about-cta__inner">
+            <div>
+              <span className="about-eyebrow">{a.ctaEyebrow}</span>
+              <h2>{a.ctaTitle}</h2>
             </div>
+            <Link className="about-button about-button--light" to="/#contact">
+              {a.ctaLink} <span aria-hidden="true">→</span>
+            </Link>
           </div>
-        </div>
-      </section>
-
-      <section className="about-purpose" aria-label="Visi dan misi Berkah Media Gemilang">
-        <div className="about-container about-purpose__grid">
-          <article className="about-purpose-card about-purpose-card--vision" data-page-reveal>
-            <span className="about-purpose-card__eyebrow">Tujuan utama</span>
-            <h2>Visi</h2>
-            <p>
-              Menjadi episentrum inovasi media dan event di Asia Tenggara, tempat kreativitas berani bertemu
-              dengan strategi dan analitik yang tajam. Kami tidak sekadar mengikuti tren—kami ikut membentuknya.
-            </p>
-            <span className="about-purpose-card__index" aria-hidden="true">01</span>
-          </article>
-
-          <article className="about-purpose-card about-purpose-card--mission" data-page-reveal>
-            <span className="about-purpose-card__eyebrow">Cara kami bergerak</span>
-            <h2>Misi</h2>
-            <ul>
-              {missions.map((mission, index) => (
-                <li key={mission}>
-                  <span aria-hidden="true">{['⚡', '↗', '✳'][index]}</span>
-                  <p>{mission}</p>
-                </li>
-              ))}
-            </ul>
-            <span className="about-purpose-card__index" aria-hidden="true">02</span>
-          </article>
-        </div>
-      </section>
-
-      <section className="about-cta" data-page-reveal>
-        <div className="about-container about-cta__inner">
-          <div>
-            <span className="about-eyebrow">Punya ide besar?</span>
-            <h2>Mari wujudkan sesuatu yang berdampak.</h2>
-          </div>
-          <Link className="about-button about-button--light" to="/#contact">
-            Mulai kolaborasi <span aria-hidden="true">→</span>
-          </Link>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   );
 }

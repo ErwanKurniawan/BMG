@@ -24,10 +24,6 @@ export const translations = {
     // ─── Home Page ────────────────────────────────────────────────────────────
     home: {
       hero: {
-        title1: 'Amplifying',
-        title2: 'Brands.',
-        title3: 'Igniting',
-        title4: 'Events.',
         description:
           'Berkah Media Gemilang adalah partner media buying dan produksi event yang menggabungkan presisi strategis dengan energi tanpa batas untuk mengangkat brand Anda.',
         cta: 'Mulai Rencanakan Event Anda',
@@ -417,10 +413,6 @@ export const translations = {
     // ─── Home Page ────────────────────────────────────────────────────────────
     home: {
       hero: {
-        title1: 'Amplifying',
-        title2: 'Brands.',
-        title3: 'Igniting',
-        title4: 'Events.',
         description:
           'Berkah Media Gemilang is a media buying and event production partner that combines strategic precision with boundless energy to elevate your brand.',
         cta: 'Start Planning Your Event',

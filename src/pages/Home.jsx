@@ -19,8 +19,8 @@ function HeroSection({ t }) {
         <div className="home-hero__copy">
           <div className="home-hero__title-wrap home-hero-enter">
             <h1 className="home-hero__title">
-              {h.title1}<br /><span>{h.title2}</span><br />
-              {h.title3}<br className="home-hero__mobile-break" /> <strong>{h.title4}</strong>
+              Amplifying<br /><span>Brands.</span><br />
+              Igniting<br className="home-hero__mobile-break" /> <strong>Events.</strong>
             </h1>
           </div>
           <p className="home-hero__description home-hero-enter home-hero-enter--second">{h.description}</p>

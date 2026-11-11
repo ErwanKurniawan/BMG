@@ -1,3 +1,5 @@
+import { ArrowRight, ArrowUpRight, Truck } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Services.css';
 import { useLanguage } from '../i18n/LanguageContext';
 
@@ -34,17 +36,17 @@ function ServicesPage() {
                 </div>
                 <h2>{s.media.title}</h2>
                 <p>{s.media.body}</p>
-                <a className="service-text-link" href={contactUrl}>{s.media.link} <span aria-hidden="true">→</span></a>
+                <Link className="service-text-link" to={contactUrl}>{s.media.link} <ArrowRight size={16} strokeWidth={2.5} aria-hidden="true" /></Link>
               </div>
             </article>
 
             <article className="service-feature service-feature--digital" data-page-reveal>
               <div className="service-feature__digital-content">
                 <span className="service-feature__index">02 / AMPLIFICATION</span>
-                <span className="material-symbols-outlined service-feature__icon" aria-hidden="true">moving</span>
+                <Truck className="service-feature__icon" size={42} strokeWidth={1.5} aria-hidden="true" />
                 <h2>{s.digital.title}</h2>
                 <p>{s.digital.body}</p>
-                <a className="service-digital-link" href={contactUrl}>{s.digital.link} <span aria-hidden="true">↗</span></a>
+                <Link className="service-digital-link" to={contactUrl}>{s.digital.link} <ArrowUpRight size={16} strokeWidth={2.5} aria-hidden="true" /></Link>
                 <span className="service-feature__orbit" aria-hidden="true" />
               </div>
             </article>
@@ -58,7 +60,7 @@ function ServicesPage() {
               </div>
               <h2>{s.production.title1}<br />{s.production.title2}</h2>
               <p>{s.production.body}</p>
-              <a className="service-production__link" href="/portfolio">{s.production.link} <span aria-hidden="true">→</span></a>
+              <Link className="service-production__link" to="/portfolio">{s.production.link} <ArrowRight size={16} strokeWidth={2.5} aria-hidden="true" /></Link>
             </div>
             <div className="service-production__image">
               <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1400&q=85" alt={s.production.imgAlt} loading="lazy" />
@@ -70,7 +72,7 @@ function ServicesPage() {
             <span className="services-eyebrow">{s.cta.eyebrow}</span>
             <h2>{s.cta.title}</h2>
             <p>{s.cta.body}</p>
-            <a href={contactUrl}>{s.cta.link} <span aria-hidden="true">→</span></a>
+            <Link to={contactUrl}>{s.cta.link} <ArrowRight size={16} strokeWidth={2.5} aria-hidden="true" /></Link>
           </section>
         </div>
       </div>

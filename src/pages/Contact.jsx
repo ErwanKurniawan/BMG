@@ -1,3 +1,5 @@
+import { ArrowRight, Mail } from 'lucide-react';
+import { SiWhatsapp } from '@icons-pack/react-simple-icons';
 import { useState } from 'react';
 import './Contact.css';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -124,7 +126,7 @@ export default function Contact() {
                 </div>
 
                 <button className="contact-submit" type="submit">
-                  {c.submit} <span aria-hidden="true">→</span>
+                  {c.submit} <ArrowRight size={16} strokeWidth={2.5} aria-hidden="true" />
                 </button>
                 {emailAppOpened && (
                   <p className="contact-form-status" role="status">
@@ -136,8 +138,8 @@ export default function Contact() {
 
             <aside className="contact-details" aria-label={c.hqTitle}>
               <section className="contact-info-card" data-page-reveal>
-                <span className="contact-info-icon contact-info-icon--blue material-symbols-outlined" aria-hidden="true">
-                  mail
+                <span className="contact-info-icon contact-info-icon--blue" aria-hidden="true">
+                  <Mail size={16} strokeWidth={1.75} />
                 </span>
                 <div>
                   <h2>{c.emailTitle}</h2>
@@ -146,8 +148,8 @@ export default function Contact() {
               </section>
 
               <section className="contact-info-card" data-page-reveal>
-                <span className="contact-info-icon contact-info-icon--red material-symbols-outlined" aria-hidden="true">
-                  chat
+                <span className="contact-info-icon contact-info-icon--red" aria-hidden="true">
+                  <SiWhatsapp size={16} />
                 </span>
                 <div>
                   <h2>WhatsApp</h2>

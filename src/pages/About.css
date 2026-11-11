@@ -19,7 +19,7 @@
 .about-hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; margin: 30px 0 0 8px; }
 .about-button { display: inline-flex; min-height: 52px; align-items: center; justify-content: center; gap: 14px; padding: 13px 19px; border: 2px solid var(--about-ink); background: var(--about-red); box-shadow: 4px 4px 0 var(--about-ink); color: #fff; font: 700 10px var(--font-mono); letter-spacing: .08em; text-decoration: none; text-transform: uppercase; transition: transform .2s ease, box-shadow .2s ease; }
 .about-button:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--about-ink); }
-.about-button span { font-size: 18px; line-height: 1; }
+.about-button svg { flex: none; display: block; }
 .about-hero__note { color: var(--about-muted); font: 700 9px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; }
 
 .about-visual { position: relative; width: min(100%, 400px); justify-self: end; padding: 0 18px 18px 0; }
@@ -43,7 +43,7 @@
 .about-purpose-card > p { max-width: 530px; color: var(--about-muted); font-size: 16px; line-height: 1.75; }
 .about-purpose-card ul { display: grid; gap: 18px; margin: 0; padding: 0; list-style: none; }
 .about-purpose-card li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; align-items: start; }
-.about-purpose-card li > span { color: var(--about-red); font-size: 19px; line-height: 1.25; }
+.about-mission-icon { display: inline-flex; align-items: flex-start; color: var(--about-red); padding-top: 2px; }
 .about-purpose-card li p { color: var(--about-muted); font-size: 15px; line-height: 1.55; }
 .about-purpose-card__index { position: absolute; right: 20px; bottom: 8px; color: rgb(28 27 27 / 5%); font: 900 100px/.9 var(--font-display); letter-spacing: -.1em; pointer-events: none; }
 

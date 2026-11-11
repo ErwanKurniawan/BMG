@@ -31,13 +31,14 @@
 .service-feature h2, .service-production h2 { font: 900 clamp(32px, 4vw, 44px)/1 var(--font-display); letter-spacing: -.04em; }
 .service-feature__body > p { margin: 13px 0 24px; color: var(--services-muted); font-size: 15px; line-height: 1.7; }
 .service-text-link { display: inline-flex; align-items: center; gap: 10px; margin-top: auto; color: var(--services-red); font: 700 11px var(--font-mono); letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
-.service-text-link span, .service-production__link span { font-size: 19px; transition: transform .2s; }
-.service-text-link:hover span, .service-production__link:hover span { transform: translateX(4px); }
+.service-text-link svg, .service-production__link svg, .service-digital-link svg, .services-cta > a svg { transition: transform .2s; }
+.service-text-link:hover svg, .service-production__link:hover svg, .services-cta > a:hover svg { transform: translateX(4px); }
+.service-digital-link:hover svg { transform: translate(2px, -2px); }
 
 .service-feature--digital { position: relative; display: flex; min-height: 420px; padding: 32px; overflow: hidden; background: var(--services-red-dark); color: #fff; }
 .service-feature__digital-content { position: relative; z-index: 1; display: flex; flex: 1; flex-direction: column; align-items: flex-start; }
 .service-feature--digital .service-feature__index { color: rgb(255 255 255 / 65%); }
-.service-feature__icon { margin: auto 0 18px; font-size: 42px; }
+.service-feature__icon { margin: auto 0 18px; }
 .service-feature--digital h2 { max-width: 340px; font-size: clamp(34px, 4.1vw, 46px); }
 .service-feature--digital p { max-width: 400px; margin-top: 13px; color: rgb(255 255 255 / 87%); font-size: 15px; line-height: 1.7; }
 .service-digital-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; padding: 13px 18px; background: #fff; color: var(--services-ink); font: 700 10px var(--font-mono); letter-spacing: .08em; text-decoration: none; text-transform: uppercase; transition: background .2s, transform .2s; }

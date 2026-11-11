@@ -1,10 +1,25 @@
+import { Link } from 'react-router-dom';
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Factory,
+  Handshake,
+  Mail,
+  MapPin,
+  Megaphone,
+  PartyPopper,
+  PenTool,
+  Share2,
+  Zap,
+} from 'lucide-react';
+import { SiWhatsapp } from '@icons-pack/react-simple-icons';
 import { useEffect, useState } from 'react';
 import './Home.css';
 import { useLanguage } from '../i18n/LanguageContext';
 
-const serviceIcons = ['campaign', 'celebration', 'share'];
+const serviceIcons = [Megaphone, PartyPopper, Share2];
 const serviceClasses = ['service-card--blue', 'service-card--red', 'service-card--yellow'];
-const valueIcons = ['precision_manufacturing', 'bolt', 'design_services', 'handshake'];
+const valueIcons = [Factory, Zap, PenTool, Handshake];
 const valueAccents = ['blue', 'red', 'dark', 'dark'];
 
 function SectionHeading({ children, accent = 'red' }) {
@@ -24,14 +39,14 @@ function HeroSection({ t }) {
             </h1>
           </div>
           <p className="home-hero__description home-hero-enter home-hero-enter--second">{h.description}</p>
-          <a className="home-button home-button--light home-hero-enter home-hero-enter--third" href="#contact">
-            {h.cta} <span aria-hidden="true">→</span>
-          </a>
+          <Link className="home-button home-button--light home-hero-enter home-hero-enter--third" to="/#contact">
+            {h.cta} <ArrowRight size={16} strokeWidth={2.5} aria-hidden="true" />
+          </Link>
         </div>
         <div className="hero-brand-card home-hero-enter home-hero-enter--card" aria-label={`Berkah Media Gemilang, ${h.founded}`}>
           <div className="hero-brand-card__backdrop" />
           <div className="hero-brand-card__content">
-            <img src="/images/logo/bmg-mark.png" alt="Logo Berkah Media Gemilang" />
+            <img src="./images/logo/bmg-mark.png" alt="Logo Berkah Media Gemilang" />
             <span className="hero-brand-card__name">Berkah Media Gemilang</span>
           </div>
         </div>
@@ -48,18 +63,21 @@ function ServicesSection({ t }) {
       <div className="home-container">
         <SectionHeading>{s.heading}</SectionHeading>
         <div className="services-grid">
-          {s.items.map((service, index) => (
-            <article className={`service-card home-reveal ${serviceClasses[index]}`} key={service.title}>
-              <div className="service-card__visual">
-                <span className="material-symbols-outlined" aria-hidden="true">{serviceIcons[index]}</span>
-              </div>
-              <div className="service-card__body">
-                <span className="eyebrow-tag">{service.tag}</span>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-              </div>
-            </article>
-          ))}
+          {s.items.map((service, index) => {
+            const ServiceIcon = serviceIcons[index];
+            return (
+              <article className={`service-card home-reveal ${serviceClasses[index]}`} key={service.title}>
+                <div className="service-card__visual">
+                  <ServiceIcon className="service-card__icon" size={66} strokeWidth={1.25} aria-hidden="true" />
+                </div>
+                <div className="service-card__body">
+                  <span className="eyebrow-tag">{service.tag}</span>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -78,7 +96,7 @@ function FeaturedPortfolioSection({ t }) {
         <article className="home-featured-project home-reveal">
           <div className="home-featured-project__image">
             <img
-              src="/images/portfolio/bandung-festival-2026.webp"
+              src="./images/portfolio/bandung-festival-2026.webp"
               alt={p.altImage}
               loading="lazy"
             />
@@ -105,12 +123,15 @@ function AboutSection({ t }) {
         <SectionHeading>{a.heading}</SectionHeading>
         <p className="about-intro home-reveal">{a.intro}</p>
         <div className="values-grid">
-          {a.values.map((value, index) => (
-            <article className={`value-card home-reveal value-card--${valueAccents[index]}`} key={value.title}>
-              <span className="material-symbols-outlined" aria-hidden="true">{valueIcons[index]}</span>
-              <h3>{value.title}</h3><p>{value.description}</p>
-            </article>
-          ))}
+          {a.values.map((value, index) => {
+            const ValueIcon = valueIcons[index];
+            return (
+              <article className={`value-card home-reveal value-card--${valueAccents[index]}`} key={value.title}>
+                <ValueIcon className="value-card__icon" size={34} strokeWidth={1.75} aria-hidden="true" />
+                <h3>{value.title}</h3><p>{value.description}</p>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -158,7 +179,7 @@ function ContactSection({ t }) {
               </label>
               <div className="contact-form-footer">
                 <button className="home-button home-button--red" type="submit">
-                  {c.submit} <span aria-hidden="true">→</span>
+                  {c.submit} <ArrowRight size={16} strokeWidth={2.5} aria-hidden="true" />
                 </button>
               </div>
               {submitted && <p className="form-success" role="status">{c.successMessage}</p>}
@@ -166,23 +187,23 @@ function ContactSection({ t }) {
           </div>
           <aside className="contact-details" aria-label={c.hqLabel}>
             <a className="contact-detail" href="mailto:hello@bmg.co.id">
-              <span className="contact-detail__icon material-symbols-outlined" aria-hidden="true">mail</span>
+              <span className="contact-detail__icon" aria-hidden="true"><Mail size={23} strokeWidth={1.75} /></span>
               <span><small>{c.emailLabel}</small><strong>hello@bmg.co.id</strong></span>
-              <span className="contact-detail__arrow" aria-hidden="true">↗</span>
+              <ArrowUpRight className="contact-detail__arrow" size={20} strokeWidth={2} aria-hidden="true" />
             </a>
             <a className="contact-detail" href="https://wa.me/628112144113" target="_blank" rel="noreferrer">
-              <span className="contact-detail__icon material-symbols-outlined" aria-hidden="true">chat</span>
+              <span className="contact-detail__icon" aria-hidden="true"><SiWhatsapp size={23} /></span>
               <span><small>{c.waLabel}</small><strong>+62 811-2144-113</strong></span>
-              <span className="contact-detail__arrow" aria-hidden="true">↗</span>
+              <ArrowUpRight className="contact-detail__arrow" size={20} strokeWidth={2} aria-hidden="true" />
             </a>
             <div className="location-card">
               <div className="location-card__heading">
                 <span><small>{c.hqLabel}</small><strong>{c.hqCity}</strong></span>
-                <span className="location-pin material-symbols-outlined" aria-hidden="true">location_on</span>
+                <MapPin className="location-pin" size={27} strokeWidth={1.75} aria-hidden="true" />
               </div>
               <div className="location-map">
                 <span className="location-map__label">BMG · BANDUNG</span>
-                <span className="location-map__pin material-symbols-outlined" aria-hidden="true">location_on</span>
+                <MapPin className="location-map__pin" size={34} strokeWidth={1.75} aria-hidden="true" />
               </div>
               <a href="https://www.google.com/maps/search/?api=1&query=Jl.%20Tamblong%20No.46%2C%20Kb.%20Pisang%2C%20Kec.%20Sumur%20Bandung%2C%20Bandung%2040112" target="_blank" rel="noopener noreferrer">
                 <p>Jl. Tamblong No.46<br />Kb. Pisang, Kec. Sumur Bandung<br />Bandung 40112</p>

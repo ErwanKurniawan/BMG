@@ -1,27 +1,24 @@
+import { SiInstagram, SiWhatsapp } from '@icons-pack/react-simple-icons';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext';
 
-const navigationRoutes = [
-  { to: '/', key: 'home' },
-  { to: '/layanan', key: 'services' },
-  { to: '/tentang', key: 'about' },
-  { to: '/portfolio', key: 'portfolio' },
-  { to: '/contact', key: 'contact' },
-];
-
+// Simple Icons no longer ships a LinkedIn glyph (removed over brand guidelines),
+// so LinkedIn stays a text-only link — Instagram & WhatsApp use Simple Icons.
 const socialLinks = [
   {
     label: 'Instagram',
     href: 'https://www.instagram.com/berkahmediagemilang/',
     target: '_blank',
     rel: 'noopener noreferrer',
+    Icon: SiInstagram,
   },
-  { label: 'LinkedIn', href: '#' },
+  { label: 'LinkedIn', href: '#', Icon: null },
   {
     label: 'WhatsApp',
     href: 'https://wa.me/628112144113',
     target: '_blank',
     rel: 'noopener noreferrer',
+    Icon: SiWhatsapp,
   },
 ];
 
@@ -80,15 +77,16 @@ export default function Footer() {
             {t.footer.connect}
           </h2>
           <div className="flex flex-col items-start gap-3 md:gap-3.5">
-            {socialLinks.map((link) => (
+            {socialLinks.map(({ label, Icon, ...link }) => (
               <a
-                key={link.label}
+                key={label}
                 href={link.href}
                 target={link.target}
                 rel={link.rel}
-                className="text-sm text-gray-300/80 transition-colors hover:text-[#e8354d]"
+                className="inline-flex items-center gap-2.5 text-sm text-gray-300/80 transition-colors hover:text-[#e8354d]"
               >
-                {link.label}
+                {Icon && <Icon size={17} aria-hidden="true" />}
+                {label}
               </a>
             ))}
           </div>

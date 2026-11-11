@@ -256,7 +256,7 @@ export const translations = {
       title: 'Kebijakan',
       titleAccent: 'Privasi',
       lastUpdated: 'Terakhir diperbarui: 1 Oktober 2026',
-      backLink: '← Kembali ke Beranda',
+      backLink: 'Kembali ke Beranda',
       content: [
         'PT Berkah Media Gemilang menghargai privasi setiap pengunjung website kami. Informasi yang Anda berikan melalui formulir kontak, email, atau media komunikasi lainnya akan digunakan hanya untuk keperluan komunikasi, konsultasi, penawaran layanan, dan kerja sama bisnis.',
         'Kami berkomitmen menjaga keamanan data yang diberikan dan tidak akan menjual, menyewakan, atau membagikan informasi pribadi Anda kepada pihak ketiga tanpa izin, kecuali jika diwajibkan oleh hukum.',
@@ -267,7 +267,7 @@ export const translations = {
       intro: 'PT Berkah Media Gemilang ("BMG", "kami") menghormati privasi Anda dan berkomitmen untuk melindungi data pribadi yang Anda percayakan kepada kami. Kebijakan Privasi ini menjelaskan jenis informasi yang kami kumpulkan, cara kami menggunakannya, dan hak-hak Anda terkait informasi tersebut sehubungan dengan layanan Media Buying, Produksi Event, dan Jangkauan Digital yang kami tawarkan.',
       sections: [
         {
-          icon: 'database',
+          icon: 'Database',
           title: '1. Informasi yang Kami Kumpulkan',
           items: [
             { heading: 'Informasi Identitas & Kontak', body: 'Nama lengkap, alamat email, nomor telepon/WhatsApp, dan nama perusahaan yang Anda berikan melalui formulir kontak atau saat menggunakan layanan kami.' },
@@ -277,7 +277,7 @@ export const translations = {
           ],
         },
         {
-          icon: 'manage_accounts',
+          icon: 'UserCog',
           title: '2. Cara Kami Menggunakan Informasi Anda',
           items: [
             { heading: 'Penyediaan Layanan', body: 'Memproses permintaan layanan, menyiapkan proposal/penawaran Media Buying, Event Production, dan Digital Reach yang sesuai dengan kebutuhan spesifik Anda.' },
@@ -287,7 +287,7 @@ export const translations = {
           ],
         },
         {
-          icon: 'share',
+          icon: 'Share2',
           title: '3. Berbagi Informasi dengan Pihak Ketiga',
           items: [
             { heading: 'Mitra Vendor & Supplier', body: 'Dalam konteks Produksi Event, kami dapat berbagi informasi proyek yang diperlukan dengan vendor terpercaya (panggung, sound system, katering, dll.) semata-mata untuk keperluan eksekusi acara Anda.' },
@@ -297,7 +297,7 @@ export const translations = {
           ],
         },
         {
-          icon: 'lock',
+          icon: 'Lock',
           title: '4. Keamanan Data',
           items: [
             { heading: 'Perlindungan Teknis', body: 'Kami menerapkan langkah-langkah keamanan teknis yang wajar termasuk enkripsi data transmisi (HTTPS/TLS), kontrol akses berbasis peran, dan pembaruan sistem keamanan secara berkala.' },
@@ -306,7 +306,7 @@ export const translations = {
           ],
         },
         {
-          icon: 'verified_user',
+          icon: 'ShieldCheck',
           title: '5. Hak-Hak Anda',
           items: [
             { heading: 'Akses & Koreksi', body: 'Anda berhak meminta salinan data pribadi yang kami miliki tentang Anda dan meminta koreksi atas informasi yang tidak akurat.' },
@@ -316,7 +316,7 @@ export const translations = {
           ],
         },
         {
-          icon: 'cookie',
+          icon: 'Cookie',
           title: '6. Cookie & Teknologi Pelacak',
           items: [
             { heading: 'Cookie Fungsional', body: 'Kami menggunakan cookie esensial untuk memastikan website berfungsi dengan benar, termasuk menyimpan preferensi bahasa Anda (Indonesia/Inggris) di perangkat Anda.' },
@@ -325,7 +325,7 @@ export const translations = {
           ],
         },
         {
-          icon: 'edit_note',
+          icon: 'NotebookPen',
           title: '7. Perubahan Kebijakan Privasi',
           items: [
             { heading: 'Pembaruan Berkala', body: 'BMG dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu untuk mencerminkan perubahan dalam layanan, teknologi, atau persyaratan hukum. Versi terbaru akan selalu tersedia di halaman ini.' },
@@ -333,7 +333,7 @@ export const translations = {
           ],
         },
         {
-          icon: 'contact_support',
+          icon: 'Headset',
           title: '8. Hubungi Kami',
           items: [
             { heading: 'Pertanyaan & Permintaan', body: 'Jika Anda memiliki pertanyaan tentang Kebijakan Privasi ini atau ingin menggunakan hak-hak Anda terkait data pribadi, silakan hubungi kami melalui:' },
@@ -645,7 +645,7 @@ export const translations = {
       title: 'Privacy',
       titleAccent: 'Policy',
       lastUpdated: 'Last updated: 1 October 2026',
-      backLink: '← Back to Home',
+      backLink: 'Back to Home',
       content: [
         'PT Berkah Media Gemilang values the privacy of every visitor to our website. Information you provide through contact forms, email, or other communication channels will only be used for communication, consultations, service offers, and business cooperation.',
         'We are committed to keeping the information you provide secure and will not sell, rent, or share your personal information with third parties without your permission, unless required by law.',
@@ -656,7 +656,7 @@ export const translations = {
       intro: 'PT Berkah Media Gemilang ("BMG", "we", "us") respects your privacy and is committed to protecting the personal data you entrust to us. This Privacy Policy explains the types of information we collect, how we use it, and your rights regarding that information in connection with our Media Buying, Event Production, and Digital Reach services.',
       sections: [
         {
-          icon: 'database',
+          icon: 'Database',
           title: '1. Information We Collect',
           items: [
             { heading: 'Identity & Contact Information', body: 'Full name, email address, phone/WhatsApp number, and company name provided through our contact forms or when engaging our services.' },
@@ -666,7 +666,7 @@ export const translations = {
           ],
         },
         {
-          icon: 'manage_accounts',
+          icon: 'UserCog',
           title: '2. How We Use Your Information',
           items: [
             { heading: 'Service Delivery', body: 'Processing service requests and preparing bespoke proposals for Media Buying, Event Production, and Digital Reach tailored to your specific needs.' },
@@ -676,7 +676,7 @@ export const translations = {
           ],
         },
         {
-          icon: 'share',
+          icon: 'Share2',
           title: '3. Sharing Information with Third Parties',
           items: [
             { heading: 'Vendor & Supplier Partners', body: 'In the context of Event Production, we may share necessary project information with trusted vendors (stages, sound systems, catering, etc.) solely for the purpose of executing your event.' },
@@ -686,7 +686,7 @@ export const translations = {
           ],
         },
         {
-          icon: 'lock',
+          icon: 'Lock',
           title: '4. Data Security',
           items: [
             { heading: 'Technical Safeguards', body: 'We implement reasonable technical security measures including data transmission encryption (HTTPS/TLS), role-based access controls, and regular security system updates.' },
@@ -695,7 +695,7 @@ export const translations = {
           ],
         },
         {
-          icon: 'verified_user',
+          icon: 'ShieldCheck',
           title: '5. Your Rights',
           items: [
             { heading: 'Access & Correction', body: 'You have the right to request a copy of the personal data we hold about you and to request corrections to any inaccurate information.' },
@@ -705,7 +705,7 @@ export const translations = {
           ],
         },
         {
-          icon: 'cookie',
+          icon: 'Cookie',
           title: '6. Cookies & Tracking Technologies',
           items: [
             { heading: 'Functional Cookies', body: 'We use essential cookies to ensure the website functions correctly, including storing your language preference (Indonesian/English) on your device.' },
@@ -714,7 +714,7 @@ export const translations = {
           ],
         },
         {
-          icon: 'edit_note',
+          icon: 'NotebookPen',
           title: '7. Changes to This Privacy Policy',
           items: [
             { heading: 'Periodic Updates', body: 'BMG may update this Privacy Policy from time to time to reflect changes in our services, technology, or legal requirements. The latest version will always be available on this page.' },
@@ -722,7 +722,7 @@ export const translations = {
           ],
         },
         {
-          icon: 'contact_support',
+          icon: 'Headset',
           title: '8. Contact Us',
           items: [
             { heading: 'Questions & Requests', body: 'If you have questions about this Privacy Policy or wish to exercise your data rights, please reach us via:' },

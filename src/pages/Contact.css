@@ -191,8 +191,8 @@
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 16px;
 }
+.contact-info-icon svg { display: block; }
 
 .contact-info-icon--blue {
   background: #3759b3;

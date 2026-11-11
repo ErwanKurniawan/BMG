@@ -1,8 +1,9 @@
+import { ArrowRight, ArrowUpRight, Asterisk, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './About.css';
 import { useLanguage } from '../i18n/LanguageContext';
 
-const missionIcons = ['⚡', '↗', '✳'];
+const missionIcons = [Zap, ArrowUpRight, Asterisk];
 
 export default function About() {
   const { t } = useLanguage();
@@ -21,7 +22,7 @@ export default function About() {
               <p className="about-hero__lead">{a.heroLead}</p>
               <div className="about-hero__actions">
                 <Link className="about-button" to="/layanan">
-                  {a.servicesLink} <span aria-hidden="true">→</span>
+                  {a.servicesLink} <ArrowRight size={16} strokeWidth={2.5} aria-hidden="true" />
                 </Link>
                 <span className="about-hero__note">{a.heroNote}</span>
               </div>
@@ -52,12 +53,17 @@ export default function About() {
               <span className="about-purpose-card__eyebrow">{a.missionEyebrow}</span>
               <h2>{a.missionTitle}</h2>
               <ul>
-                {a.missions.map((mission, index) => (
-                  <li key={mission}>
-                    <span aria-hidden="true">{missionIcons[index]}</span>
-                    <p>{mission}</p>
-                  </li>
-                ))}
+                {a.missions.map((mission, index) => {
+                  const MissionIcon = missionIcons[index];
+                  return (
+                    <li key={mission}>
+                      <span className="about-mission-icon" aria-hidden="true">
+                        <MissionIcon size={19} strokeWidth={2} />
+                      </span>
+                      <p>{mission}</p>
+                    </li>
+                  );
+                })}
               </ul>
               <span className="about-purpose-card__index" aria-hidden="true">02</span>
             </article>
@@ -71,7 +77,7 @@ export default function About() {
               <h2>{a.ctaTitle}</h2>
             </div>
             <Link className="about-button about-button--light" to="/#contact">
-              {a.ctaLink} <span aria-hidden="true">→</span>
+              {a.ctaLink} <ArrowRight size={16} strokeWidth={2.5} aria-hidden="true" />
             </Link>
           </div>
         </section>

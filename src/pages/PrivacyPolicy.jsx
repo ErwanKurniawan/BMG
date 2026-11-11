@@ -1,3 +1,4 @@
+import { ArrowLeft, Gavel } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './PrivacyPolicy.css';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -18,11 +19,12 @@ export default function PrivacyPolicy() {
           <div className="privacy-container privacy-hero__inner">
 
             <Link to="/" className="privacy-back-link">
+              <ArrowLeft size={14} strokeWidth={2.5} aria-hidden="true" />
               {p.backLink}
             </Link>
 
             <span className="privacy-hero__badge">
-              <span className="material-symbols-outlined" aria-hidden="true">gavel</span>
+              <Gavel size={15} strokeWidth={2} aria-hidden="true" />
               {p.badge}
             </span>
 

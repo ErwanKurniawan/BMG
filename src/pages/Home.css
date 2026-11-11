@@ -103,7 +103,7 @@
 .service-card__visual { height: 190px; display: grid; place-items: center; border-bottom: 2px solid var(--home-ink); color: #fff; background: var(--home-blue); }
 .service-card--red .service-card__visual { background: var(--home-red); }
 .service-card--yellow .service-card__visual { color: var(--home-ink); background: #f0c900; }
-.service-card__visual .material-symbols-outlined { font-size: 66px; }
+.service-card__visual .service-card__icon { display: block; }
 .service-card__body { padding: 25px; }
 .eyebrow-tag { display: inline-block; margin-bottom: 13px; padding: 5px 9px; border: 1px solid var(--home-ink); background: #eee8e5; font: 700 10px var(--font-mono); letter-spacing: .07em; text-transform: uppercase; }
 .service-card h3 { margin-bottom: 11px; font: 800 27px/1.1 var(--font-display); letter-spacing: -.035em; }
@@ -132,9 +132,9 @@
 .value-card { min-height: 190px; padding: 27px; border: 2px solid var(--home-ink); background: #f4f0ef; box-shadow: 5px 5px 0 var(--home-ink); }
 .value-card--blue { box-shadow: 5px 5px 0 var(--home-blue); }
 .value-card--red { box-shadow: 5px 5px 0 var(--home-red); }
-.value-card .material-symbols-outlined { display: block; margin-bottom: 12px; color: var(--home-ink); font-size: 34px; }
-.value-card--blue .material-symbols-outlined { color: var(--home-blue); }
-.value-card--red .material-symbols-outlined { color: var(--home-red); }
+.value-card .value-card__icon { display: block; margin-bottom: 12px; color: var(--home-ink); }
+.value-card--blue .value-card__icon { color: var(--home-blue); }
+.value-card--red .value-card__icon { color: var(--home-red); }
 .value-card h3 { margin-bottom: 7px; font: 800 27px var(--font-display); }
 .value-card p { color: var(--home-muted); font-size: 15px; line-height: 1.6; }
 
@@ -159,17 +159,18 @@
 .contact-details { display: flex; flex-direction: column; gap: 16px; }
 .contact-detail { min-height: 92px; padding: 18px; display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit; transition: transform .2s; }
 .contact-detail:hover { transform: translateY(-2px); }
-.contact-detail__icon { width: 48px; height: 48px; flex: none; display: grid; place-items: center; border: 2px solid var(--home-ink); background: var(--home-blue); color: #fff; font-size: 23px; }
+.contact-detail__icon { width: 48px; height: 48px; flex: none; display: grid; place-items: center; border: 2px solid var(--home-ink); background: var(--home-blue); color: #fff; }
+.contact-detail__icon svg { display: block; }
 .contact-detail:nth-child(2) .contact-detail__icon { background: var(--home-red); }
 .contact-detail small, .location-card small { display: block; margin-bottom: 4px; color: var(--home-muted); font: 700 9px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
 .contact-detail strong, .location-card strong { display: block; font: 800 17px var(--font-display); }
-.contact-detail__arrow { margin-left: auto; color: var(--home-red); font-size: 20px; }
+.contact-detail__arrow { margin-left: auto; flex: none; color: var(--home-red); }
 .location-card { padding: 20px; }
 .location-card__heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.location-pin { color: var(--home-red); font-size: 27px; }
+.location-pin { flex: none; color: var(--home-red); }
 .location-map { position: relative; height: 130px; margin-top: 17px; overflow: hidden; display: grid; place-items: center; border-block: 2px solid var(--home-ink); background-color: #e9e6e4; background-image: linear-gradient(35deg, transparent 46%, rgb(55 89 179 / 22%) 47%, rgb(55 89 179 / 22%) 49%, transparent 50%), linear-gradient(-25deg, transparent 42%, rgb(189 0 26 / 16%) 43%, rgb(189 0 26 / 16%) 45%, transparent 46%), linear-gradient(#b7b2b0 1px, transparent 1px), linear-gradient(90deg, #b7b2b0 1px, transparent 1px); background-size: 100% 100%, 100% 100%, 25px 25px, 25px 25px; }
 .location-map__label { padding: 5px 8px; background: var(--home-ink); color: #fff; font: 700 9px var(--font-mono); letter-spacing: .12em; }
-.location-map__pin { position: absolute; top: 24px; left: 58%; color: var(--home-red); font-size: 34px; }
+.location-map__pin { position: absolute; top: 24px; left: 58%; color: var(--home-red); }
 .location-card > a { display: block; color: inherit; text-decoration: none; }
 .location-card > a > p { margin-top: 14px; color: var(--home-muted); font-size: 13px; font-weight: 600; line-height: 1.65; }
 .location-card > a:hover > p { text-decoration: underline; }

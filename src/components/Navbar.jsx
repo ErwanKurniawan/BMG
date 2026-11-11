@@ -1,3 +1,4 @@
+import { Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -138,7 +139,7 @@ export default function Navbar() {
           <img
             className="h-12 w-12 object-contain"
             alt="Berkah Media Gemilang Logo"
-            src="/images/logo/bmg-mark.png"
+            src="./images/logo/bmg-mark.png"
           />
           <span className="hidden font-display text-3xl font-black tracking-tighter text-[#bd001a] md:block">
             BMG
@@ -186,9 +187,11 @@ export default function Navbar() {
           aria-controls="mobile-menu"
           onClick={() => setMobileOpen((open) => !open)}
         >
-          <span className="material-symbols-outlined block text-[32px]" aria-hidden="true">
-            {mobileOpen ? 'close' : 'menu'}
-          </span>
+          {mobileOpen ? (
+            <X size={32} strokeWidth={2.25} className="block" aria-hidden="true" />
+          ) : (
+            <Menu size={32} strokeWidth={2.25} className="block" aria-hidden="true" />
+          )}
         </button>
       </nav>
 
@@ -207,7 +210,7 @@ export default function Navbar() {
           aria-label="Close menu"
           onClick={closeMobileMenu}
         >
-          <span className="material-symbols-outlined block text-4xl" aria-hidden="true">close</span>
+          <X size={36} strokeWidth={2.25} className="block" aria-hidden="true" />
         </button>
 
         <div className="flex flex-col items-center gap-8">

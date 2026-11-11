@@ -60,8 +60,9 @@
   text-transform: uppercase;
   width: fit-content;
 }
-.privacy-hero__badge .material-symbols-outlined {
-  font-size: 15px;
+.privacy-hero__badge svg {
+  display: block;
+  flex: none;
 }
 
 .privacy-hero__title {
@@ -145,8 +146,8 @@
   flex-shrink: 0;
   margin-top: 4px;
 }
-.privacy-section__icon-wrap .material-symbols-outlined {
-  font-size: 22px;
+.privacy-section__icon-wrap svg {
+  display: block;
   color: #fff;
 }
 

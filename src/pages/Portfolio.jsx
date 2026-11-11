@@ -1,9 +1,10 @@
+import { ArrowDown } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import './Portfolio.css';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const projectImages = [
-  '/images/portfolio/bandung-festival-2026.webp',
+  './images/portfolio/bandung-festival-2026.webp',
   'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=85',
   'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=85',
   'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1200&q=85',
@@ -83,7 +84,7 @@ export default function Portfolio() {
                   onClick={() => setShowAll(true)}
                   type="button"
                 >
-                  {p.showMore} <span aria-hidden="true">↓</span>
+                  {p.showMore} <ArrowDown size={16} strokeWidth={2.5} aria-hidden="true" />
                 </button>
               </div>
             )}
